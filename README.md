@@ -30,7 +30,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This is a simple example of a linear search on a qubic function.
+
+Bounds are automatically determined if they are within -10^10 to 10^10. Iterations are limited to 1000 by default.
+
+```ruby
+begin
+    goalseeker = GoalSeek::LinearSearch.new(Proc.new() { |x| x ** 3 });
+    result = goalseeker.seek(27) # returns 3.0
+rescue GoalSeek::InvalidBoundError
+    puts "Function does not cross target value within interval (-10^10, 10^10)"
+rescue GoalSeek::InvalidFunctionError
+    puts "Provided block is not callable" 
+end
+```
+
+For more examples, please have a look at the specs.
 
 ## Development
 
@@ -45,7 +60,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/pehler
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Goalseek project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/pehlert/goalseek/blob/master/CODE_OF_CONDUCT.md).

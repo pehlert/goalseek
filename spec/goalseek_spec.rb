@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe GoalSeek do
   it "raises for function that never crosses the goal within the given bound" do
-    goalseek = GoalSeek::GoalSeek.new(Proc.new { |x|
+    goalseek = GoalSeek::LinearSearch.new(Proc.new { |x|
       x*x
     })
 
@@ -10,7 +10,7 @@ RSpec.describe GoalSeek do
   end
 
   it "finds exact goal for quadratic function" do
-    goalseek = GoalSeek::GoalSeek.new(Proc.new { |x|
+    goalseek = GoalSeek::LinearSearch.new(Proc.new { |x|
       x*x
     })
 
@@ -18,7 +18,7 @@ RSpec.describe GoalSeek do
   end
 
   it "finds exact goal for qubic function" do
-    goalseek = GoalSeek::GoalSeek.new(Proc.new { |x|
+    goalseek = GoalSeek::LinearSearch.new(Proc.new { |x|
       x*x*x
     })
 
@@ -27,7 +27,7 @@ RSpec.describe GoalSeek do
   end
 
   it "finds approximate goal for qubic function" do
-    goalseek = GoalSeek::GoalSeek.new(Proc.new { |x|
+    goalseek = GoalSeek::LinearSearch.new(Proc.new { |x|
       x*x*x
     })
 
